@@ -1,58 +1,28 @@
 @import "styles/variaveis";
 @import "styles/breakpoints";
 
-.menu {
-  padding: 20px $padding-horizontal;
-  @media (max-width: $desktop_xsm) {
-    padding: 20px $padding-horizontal-mobile;
-  }
-  @media (min-width: $desktop_xsm) and (max-width: $desktop_sm) {
-    padding: 20px $padding-horizontal-sm;
-  }
-  @media (min-width: $desktop_sm) and (max-width: $desktop_md) {
-    padding: 20px $padding-horizontal-md;
-  }
-}
-
-.header {
+.buscador {
   align-items: center;
-  background-image: url("/assets/cardapio/header.png");
-  background-size: cover;
-  background-repeat: no-repeat;
+  background-color: $grey;
+  border-radius: 5px;
   display: flex;
-  height: 300px;
-  padding: 0px $padding-horizontal;
-  @media (max-width: $desktop_xsm) {
-    padding: 0px $padding-horizontal-mobile;
+  gap: 18px;
+  height: 42px;
+  justify-content: space-between;
+  padding: 0 15px;
+  width: 400px;
+  @media (max-width: $mobile) {
+    width: 100%;
   }
-  @media (min-width: $desktop_xsm) and (max-width: $desktop_sm) {
-    padding: 0px $padding-horizontal-sm;
-  }
-  @media (min-width: $desktop_sm) and (max-width: $desktop_md) {
-    padding: 0px $padding-horizontal-md;
-  }
-  &__text {
-    color: white;
-    font-size: 5rem;
-    min-width: 400px;
-    width: 40%;
-  }
-}
-
-.cardapio {
-  padding: 50px $padding-horizontal;
-  @media (max-width: $desktop_xsm) {
-    padding: 50px $padding-horizontal-mobile;
-  }
-  @media (min-width: $desktop_xsm) and (max-width: $desktop_sm) {
-    padding: 50px $padding-horizontal-sm;
-  }
-  @media (min-width: $desktop_sm) and (max-width: $desktop_md) {
-    padding: 50px $padding-horizontal-md;
-  }
-  &__titulo {
-    color: $dark;
-    font-size: 3rem;
-    margin-bottom: 30px;
+  input {
+    background-color: $grey;
+    border: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    outline: none;
+    width: 100%;
+    &::placeholder {
+      color: #4c4d5e;
+    }
   }
 }
