@@ -1,30 +1,40 @@
 import ItemStyles from './Item.module.scss'
-import  Logo from 'assets/logo.svg';
+import cardapio from '../items.json'
+import classnames from 'classnames';
+
+//coloca-se a primeira posição pois se não ele entende como array
+type Props = typeof cardapio[0];
 
 
-export default function Item(){
+export default function Item(props: Props){
+  
+  const {title, description, category, size, serving, price, photo} = props
+
   return(
     <div className={ItemStyles.item}>
       <div className={ItemStyles.item__imagem}>
-        <img alt='image' src={Logo}/>
+        <img alt={title} src={photo}/>
       </div>
       <div className={ItemStyles.item__descricao}>
         <div className={ItemStyles.item__titulo}>
-          <h2>Massa</h2>
-          <p>descriçao</p>
+          <h2>{title}</h2>
+          <p>{description}</p>
         </div>
         <div className={ItemStyles.item__tags}>
-          <div className={ItemStyles.item__tipo}>
-            Massa
+          <div className={classnames({
+            [ItemStyles.item__tipo]: true,
+            [ItemStyles[`item__tipo__${category.label.toLowerCase()}`]] : true
+          })}>
+            {category.label}
           </div>
           <div className={ItemStyles.item__porcao}>
-            400 gramas
+            {size} G
           </div>
           <div className={ItemStyles.item__qtdpessoas}>
-            serve 2 pessoas
+            Serve {serving} pessoa{serving === 1 ? '' : 's'}
           </div>
           <div className={ItemStyles.item__valor}>
-            R$ 40,00
+            R$ {price.toFixed(2)}
           </div>
         </div>
       </div>
