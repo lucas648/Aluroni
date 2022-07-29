@@ -1,5 +1,5 @@
-import ItemStyles from './Item.module.scss'
-import cardapio from '../items.json'
+import ItemStyles from './Item.module.scss';
+import cardapio from 'data/cardapio.json';
 import classnames from 'classnames';
 
 //coloca-se a primeira posição pois se não ele entende como array
