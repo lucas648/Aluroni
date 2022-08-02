@@ -2,6 +2,8 @@ import cardapio from 'data/cardapio.json';
 import InicioStyles from './Inicio.module.scss';
 import temaStyles from 'styles/Tema.module.scss';
 
+import nossaCasa from 'assets/nossa_casa.png'
+
 export default function Inicio(){
   let pratosRecomendados = [...cardapio];
 
@@ -23,6 +25,13 @@ export default function Inicio(){
             </div>
           ))
         }
+      </div>
+      <h3 className={temaStyles.titulo}>Nossa casa</h3>
+      <div className={InicioStyles.nossaCasa}>
+        <img src={nossaCasa} alt="Lucaroni house"/>
+        <div className={InicioStyles.nossaCasa__endereco}>
+          Av. Onze de Junho, 540 <br/><br/> Vila Clementino,SP 
+        </div>
       </div>
     </section>
   );
