@@ -2,6 +2,8 @@ import PratoStyles from './Prato.module.scss';
 import { useNavigate, useParams } from 'react-router-dom';
 import cardapio from 'data/cardapio.json';
 import TagsPrato from 'components/tagsPrato';
+import NotFound from 'pages/notFound';
+import Home from 'components/home';
 
 export default function Prato(){
   
@@ -10,9 +12,10 @@ export default function Prato(){
 
   const navigate = useNavigate();
 
-  if(! prato){ return '';}    
+  if(! prato){ return <NotFound/>;}
+
   return(
-    <>
+    <Home>
       <button 
         onClick={()=>{navigate(-1)}}
         className={PratoStyles.voltar}
@@ -31,6 +34,6 @@ export default function Prato(){
         </div>
         <TagsPrato {...prato}/>
       </section>
-    </>
+    </Home>
   )
 }
