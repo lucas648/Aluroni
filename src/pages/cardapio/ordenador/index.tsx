@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { memo, useState } from 'react';
 
 import OrdenadorStyles from './Ordenador.module.scss';
 import opcoes from './opcoes.json';
@@ -11,7 +11,7 @@ interface Props {
   setOrdenador: React.Dispatch<React.SetStateAction<string>>
 }
 
-export default function Ordenador({ordenador, setOrdenador}: Props){
+function Ordenador({ordenador, setOrdenador}: Props){
   
   const [aberto, setAberto] = useState(false);
   const nomeOrdenador = ordenador && opcoes.find(opcao=> opcao.value === ordenador)?.nome
@@ -25,7 +25,7 @@ export default function Ordenador({ordenador, setOrdenador}: Props){
       onClick={()=> setAberto(!aberto)}
       onBlur={()=> setAberto(false)}
     >
-      <span>{nomeOrdenador || "Ordenar Por"}</span>
+      <span>{nomeOrdenador || "Ordenar Por"}</span> 
       {aberto ? <MdKeyboardArrowUp size={20}/> : <MdKeyboardArrowDown size={20}/>}
       <div 
         className={classNames({
@@ -48,3 +48,5 @@ export default function Ordenador({ordenador, setOrdenador}: Props){
     </button>
   )
 }
+
+export default memo(Ordenador)
